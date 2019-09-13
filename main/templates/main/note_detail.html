@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load thumbnail %}
+
+{% block title %}{{ user.username }} - urls{% endblock %}
+
+{% block body %}
+  {% for note in note %}
+    {% if note.title %}
+      <p class="lead"><strong>url</strong> - <a href="{{ note.url }}">{{ note.url }}</a> - <img src="/media/{{ note.image }}"></p>
+      <p class="lead"><strong>title</strong> - {{ note.title }}</p>
+      <p class="lead"><strong>description</strong> - {{ note.description }}</p>
+    {% else %}
+      <p class="lead"><strong>url</strong> - <a href="{{ note.url }}">{{ note.url }}</a></p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
